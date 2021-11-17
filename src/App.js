@@ -54,6 +54,19 @@ export default function App() {
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
   }
   dateFormate(date);
+  function isPalindrome(date) {
+    var allDate = dateFormate(date);
+    var flag = false;
+    for (var i = 0; i < allDate.length; i++) {
+      if (palindrome(allDate[i])) {
+        flag = true;
+        break;
+      }
+    }
+    return flag;
+  }
+  isPalindrome(date);
+  function getNextDate(date) {}
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
