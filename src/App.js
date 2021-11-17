@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function App() {
   var date = {
     day: 5,
-    month: 2,
+    month: 29,
     year: 2011
   };
   function inputHandler(event) {
@@ -48,6 +48,7 @@ export default function App() {
     var yyyymmdd = converted.year + converted.month + converted.day;
 
     var ddmmyy = converted.day + converted.month + converted.year.slice(-2);
+
     var mmddyy = converted.month + converted.day + converted.year.slice(-2);
     var yymmdd = converted.year.slice(-2) + converted.month + converted.day;
 
@@ -66,7 +67,48 @@ export default function App() {
     return flag;
   }
   isPalindrome(date);
-  function getNextDate(date) {}
+  function leapYear(year) {
+    if (year % 100 === 0) {
+      return true;
+    }
+    if (year % 400 === 0) {
+      return true;
+    }
+    if (year % 4 === 0) {
+      return true;
+    }
+    return false;
+  }
+  function getNextDate(date) {
+    var day = date.day + 1;
+    var month = date.month;
+    var year = date.year;
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (month === 2) {
+      if (leapYear(year)) {
+        if (day > 29) {
+          day = 1;
+          month = month + 1;
+        }
+      } else {
+        if (day > 28) {
+          day = 1;
+          month++;
+        }
+      }
+    } else {
+      if (day > daysInMonth[month - 1]) {
+        day = 1;
+        month++;
+      }
+    }
+    if (month > 12) {
+      month = 1;
+      year++;
+    }
+    console.log(day, year, month);
+  }
+  getNextDate(date);
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
