@@ -21,7 +21,29 @@ export default function App() {
     return reversed === str;
   }
   palindrome("nitin");
-
+  function convertDate(date) {
+    var newDate = {
+      day: "",
+      month: "",
+      year: ""
+    };
+    if (date.day < 10) {
+      newDate.day = "0" + date.day;
+    } else {
+      newDate = date.day.toString();
+    }
+    if (date.month < 10) {
+      newDate.month = "0" + date.month;
+    } else {
+      newDate = date.month.toString();
+    }
+    newDate.year = date.year.toString();
+    return newDate;
+    console.log(newDate);
+  }
+  convertDate(date);
+  function newDateFormate(date) {}
+  newDateFormate(date);
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
