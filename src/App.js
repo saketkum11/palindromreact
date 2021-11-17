@@ -39,11 +39,21 @@ export default function App() {
     }
     newDate.year = date.year.toString();
     return newDate;
-    console.log(newDate);
   }
   convertDate(date);
-  function newDateFormate(date) {}
-  newDateFormate(date);
+  function dateFormate(date) {
+    var converted = convertDate(date);
+    var ddmmyyyy = converted.day + converted.month + converted.year;
+    var mmddyyyy = converted.month + converted.day + converted.year;
+    var yyyymmdd = converted.year + converted.month + converted.day;
+
+    var ddmmyy = converted.day + converted.month + converted.year.slice(-2);
+    var mmddyy = converted.month + converted.day + converted.year.slice(-2);
+    var yymmdd = converted.year.slice(-2) + converted.month + converted.day;
+
+    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
+  }
+  dateFormate(date);
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
