@@ -106,9 +106,14 @@ export default function App() {
       month = 1;
       year++;
     }
-    console.log(day, year, month);
+    return {
+      day: day,
+      month: month,
+      year: year
+    };
   }
   getNextDate(date);
+
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
