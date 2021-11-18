@@ -114,6 +114,18 @@ export default function App() {
   }
   getNextDate(date);
 
+  function getNextPalindrom(date) {
+    var counter = 0;
+    var nextDate = getNextDate(date);
+    while (1) {
+      counter++;
+      var isPalindrom = isPalindrome(date);
+      if (isPalindrom) {
+        break;
+      }
+    }
+  }
+
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
